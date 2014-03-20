@@ -1,0 +1,28 @@
+{
+  "name": "buildorch",
+  "version": "0.0.0",
+  "description": "A Simple CLI based utility to Build Bundle <> (b3), a NodeJs Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subeeshcbabu/b3.git"
+  },
+  "keywords": [
+    "b3",
+    "buid",
+    "builder",
+    "bundle",
+    "bundler",
+    "test",
+    "codecoverage",
+    "lint"
+  ],
+  "author": "subeeshcbabu",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/subeeshcbabu/b3/issues"
+  }
+}

@@ -1,0 +1,39 @@
+{
+	"init" : {
+		"clean"	: [
+			"node_modules"
+		],
+		"script" : ""
+
+	},
+
+	"build" : {
+		"files" : [
+
+		],
+		"script" : ""
+	},
+
+	"beat" : {
+		"files" : [
+
+		],
+		"script" : ""
+	},
+
+	"bundle" : {
+		"format" : "tgz",
+ 		"files" : [
+
+		],
+		"target" : "target",
+		"script" : "",
+		"clean"	: [
+			"source"
+		]
+	}
+
+
+	
+
+}
