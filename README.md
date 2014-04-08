@@ -21,11 +21,13 @@ Install the module
 Commands
 	
 	node_modules/.bin/buildorch b3  (Executes build, bake and bundle)
-	node_modules/.bin/buildorch b3  (Executes build and bake)
+	node_modules/.bin/buildorch b2  (Executes build and bake)
 	node_modules/.bin/buildorch build
 	node_modules/.bin/buildorch bake
 	node_modules/.bin/buildorch bundle
 	
+# Pre Requisite
+Unix OS
 
 # Features:
 
@@ -101,9 +103,9 @@ A Sample `buildorch.json`
 - bundle
 - metrics
 
--- clean
--- script
--- files
+- clean
+- script
+- files
 
 ## Generates build metrics
 
@@ -111,6 +113,7 @@ The orachestartor generates a `build-metrics.json` file, helpful in figuring out
 
 A sample `build-metrics.json`
 
+```js
 {
   "application" : "foo",
   "userid" : "bar",
@@ -154,14 +157,13 @@ A sample `build-metrics.json`
       "endtime": "2014-04-07T21:17:29.725Z",
       "status": "SUCCESS"
     },
-    
+
     "endtime": "2014-04-07T21:17:29.726Z"
   },
 
   "endtime": "2014-04-07T22:21:16.262Z",
   "status": "SUCCESS"
 }
+```
 
-#Pre Requisite
-Unix OS
 
