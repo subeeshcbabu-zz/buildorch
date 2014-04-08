@@ -1,16 +1,18 @@
 {
   "name": "buildorch",
-  "version": "0.0.0",
-  "description": "A Simple CLI based utility to Build Bundle <> (b3), a NodeJs Application.",
+  "version": "0.0.1",
+  "description": "A Simple CLI based utility to Build, Beat and Bundle (b3), a NodeJs Application.",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha test"
+    "test": "node_modules/.bin/mocha test",
+    "lint": "jshint ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/subeeshcbabu/b3.git"
+    "url": "https://github.com/subeeshcbabu/buildorch.git"
   },
   "keywords": [
+    "orchestrator",
     "b3",
     "buid",
     "builder",
@@ -20,9 +22,32 @@
     "codecoverage",
     "lint"
   ],
+  "bin": {
+    "buildorch": "./bin/cli.js"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "subeeshcbabu",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/subeeshcbabu/b3/issues"
+    "url": "https://github.com/subeeshcbabu/buildorch/issues"
+  },
+  "dependencies": {
+    "commander": "~2.1.0",
+    "nconf": "~0.6.9",
+    "shortstop": "~1.0.0",
+    "shortstop-handlers": "~0.1.0",
+    "jsonminify": "~0.2.3",
+    "async": "~0.2.10",
+    "shelljs": "~0.2.6",
+    "getit": "~0.4.1",
+    "debug": "~0.8.0",
+    "log4js": "~0.6.12"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1",
+    "jshint": "~2.5.0"
   }
 }

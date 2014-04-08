@@ -4,36 +4,55 @@
 			"node_modules"
 		],
 		"script" : ""
-
 	},
 
 	"build" : {
 		"files" : [
 
 		],
-		"script" : ""
+		"script" : "",
+		"execbuild" : {
+			"command" : "npm install"
+		},
+		"clean"	: [
+			
+		]
 	},
 
-	"beat" : {
+	"bake" : {
 		"files" : [
 
 		],
-		"script" : ""
+		"script" : "",
+		"command" : "path:node_modules/.bin/grunt", 
+		"execbake" : {
+			"lint" : "lint",
+			"unittest" : "test",
+			"coverage" : "coverage",
+			"custom" : "build"
+		},
+		"clean"	: [
+			
+		]
 	},
 
-	"bundle" : {
-		"format" : "tgz",
+	"bundle" : {	
  		"files" : [
 
-		],
-		"target" : "target",
+		],	
 		"script" : "",
+		"execbundle" : {
+			"target" : "target",
+			"format" : "tgz"
+		},
 		"clean"	: [
-			"source"
+			
 		]
+	},
+	"metrics" : {
+		
+		"write" : {
+			"outfile" : "path:build-metrics.json"
+		}
 	}
-
-
-	
-
 }

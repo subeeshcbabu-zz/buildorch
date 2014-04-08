@@ -1,0 +1,38 @@
+{
+  "name": "abc",
+  "version": "0.0.0",
+  "description": "test app",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subeeshcbabu/b3.git"
+  },
+  "keywords": [
+    "orchestrator",
+    "b3",
+    "buid",
+    "builder",
+    "bundle",
+    "bundler",
+    "test",
+    "codecoverage",
+    "lint"
+  ],
+  "author": "subeeshcbabu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/subeeshcbabu/b3/issues"
+  },
+  "dependencies": {
+    "commander": "~2.1.0",
+    "shortstop": "0.0.1",
+    "shelljs": "~0.2.6"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1"
+  }
+}

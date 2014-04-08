@@ -1,0 +1,44 @@
+{
+	"init" : {
+		"script" : "path:initscript.sh",
+		"clean"	: [
+			"path:node_modules"
+		]
+	},
+
+	"build" : {
+		"files" : [
+			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
+		],
+		"script" : "path:buildscript.sh",
+		"clean"	: [
+			
+		]
+	},
+
+	"bake" : {
+		"files" : [
+
+		],
+		"script" : "path:bakescript.sh",
+		"clean"	: [
+			
+		]
+	},
+
+	"bundle" : {
+		"format" : "rpm",
+ 		"files" : [
+
+		],
+		"target" : "path:target",
+		"script" : "path:bundlescript.sh",
+		"clean"	: [
+			"path:node_modules"
+		]
+	}
+
+
+	
+
+}

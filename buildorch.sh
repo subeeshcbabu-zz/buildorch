@@ -1,5 +1,5 @@
 #!/bin/sh
-# The Init Script for Node and NPM Install and Init
+# The Init Script for Node and NPM Install and Configurations
 #
 #
 echo "************************ Start Init *************************"
