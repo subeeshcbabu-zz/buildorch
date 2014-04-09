@@ -1,7 +1,6 @@
 {
 	"init" : {
 		"clean"	: [
-			"node_modules"
 		],
 		"script" : ""
 	},
@@ -43,7 +42,7 @@
 		"script" : "",
 		"execbundle" : {
 			"target" : "path:target",
-			"format" : "tar",
+			"format" : "tgz",
 			"ignorefile" : [
 				"path:.pacakgeignore"
 			]

@@ -1,12 +1,12 @@
 {
 	"init" : {
-		"script" : "path:initscript.sh",
-		"clean"	: [
-			"path:node_modules"
-		]
+		"script" : "path:initscript.sh"
 	},
 
 	"build" : {
+		"clean"	: [
+			"path:node_modules"
+		],
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
