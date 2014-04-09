@@ -8,7 +8,7 @@ The workflow has these three,
 - Bake   (Execute the Grunt tasks - lint,test,cover,build OR execute the npm scripts lint,test,cover,build)
 - Bundle (Bundle the Application code and node_modules - Default format is tgz)
 
-# Usage
+## Usage
 
 Init script to install nodejs and npm and configure the npm defaults
 
@@ -26,12 +26,12 @@ Commands
 	node_modules/.bin/buildorch bake
 	node_modules/.bin/buildorch bundle
 	
-# Pre Requisite
+### Pre Requisite
 Unix OS
 
-# Features:
+## Features:
 
-## Configuration based 
+### Configuration based 
 
 The build orchestartion works based on a JSON Configuration `buildorch.json`. If application did not specify a config json file, a default template is loaded. [buildorch.json](https://raw.github.com/subeeshcbabu/buildorch/master/config/buildorch.json). The config loader supports arbitrary types using the module [shortstop] (https://github.com/krakenjs/shortstop).
 
@@ -95,30 +95,27 @@ A Sample `buildorch.json`
 	}
 }
 ```
-### Handlers
-#### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers)
-path
-file
-env
+#### Handlers
+##### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers) - path, file, and env
 
-#### getit handler
+##### getit handler
 format - `getit:<remote file location>`
 This handler will download the file and save it to the `process.cwd()/<filename>` location.
 The scripts and other executers can reference the file using `process.cwd()/<filename>` path.
 
-## Tasks
+### Tasks
 
-- init
-- build
-- bake
-- bundle
-- metrics
+##### init
+##### build
+##### bake
+##### bundle
+##### metrics
 
-- clean
-- script
-- files
+##### clean
+##### script
+##### files
 
-## Generates build metrics
+### Generates build metrics
 
 The orachestartor generates a `build-metrics.json` file, helpful in figuring out the time spent on granular level tasks and status of individual steps.
 
