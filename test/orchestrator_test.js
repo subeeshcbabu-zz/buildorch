@@ -53,7 +53,7 @@ describe('Orchestrator test', function () {
 
     it('should execute the b2', function (next) {
 
-        orchestrator.exec(['build', 'bake'], function(){
+        orchestrator.exec(['build', 'bake', 'bundle'], function(){
             next();
         });
 

@@ -42,8 +42,11 @@
 		],	
 		"script" : "",
 		"execbundle" : {
-			"target" : "target",
-			"format" : "tgz"
+			"target" : "path:target",
+			"format" : "tar",
+			"ignorefile" : [
+				"path:.pacakgeignore"
+			]
 		},
 		"clean"	: [
 			

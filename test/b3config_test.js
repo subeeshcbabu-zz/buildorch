@@ -5,7 +5,7 @@ var path = require('path'),
    // shell = require('shelljs'),
     b3config = require('../lib/b3config');
 
-describe('init test', function () {
+describe('b3 config test', function () {
 
     var pwd, rand = Math.floor((Math.random()*100)+1), configJson;
     this.timeout(100000);

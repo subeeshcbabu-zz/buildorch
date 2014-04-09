@@ -39,3 +39,5 @@ Thumbs.db
 /test/fixtures/node_modules
 /test/fixtures/build-metrics.json
 build-metrics.json
+/test/fixtures/buildorch.sh
+/test/fixtures/target

@@ -48,9 +48,9 @@ A Sample `buildorch.json`
 
 	"build" : {
 		"files" : [
-
+			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
-		"script" : "",
+		"script" : "path:buildscript.sh",
 		"execbuild" : {
 			"command" : "npm install"
 		},
@@ -63,7 +63,7 @@ A Sample `buildorch.json`
 		"files" : [
 
 		],
-		"script" : "",
+		"script" : "path:bakescript.sh",
 		"execbake" : {
 			"lint" : "lint",
 			"unittest" : "test",
@@ -79,10 +79,10 @@ A Sample `buildorch.json`
  		"files" : [
 
 		],	
-		"script" : "",
+		"script" : "path:bundlescript.sh",
 		"execbundle" : {
 			"target" : "target",
-			"format" : "tgz"
+			"format" : "tar"
 		},
 		"clean"	: [
 			
@@ -95,6 +95,17 @@ A Sample `buildorch.json`
 	}
 }
 ```
+### Handlers
+#### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers)
+path
+file
+env
+
+#### getit handler
+format - `getit:<remote file location>`
+This handler will download the file and save it to the `process.cwd()/<filename>` location.
+The scripts and other executers can reference the file using `process.cwd()/<filename>` path.
+
 ## Tasks
 
 - init
