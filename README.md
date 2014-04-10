@@ -99,21 +99,60 @@ A Sample `buildorch.json`
 ##### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers) - path, file, and env
 
 ##### getit handler
-format - `getit:<remote file location>`
-This handler will download the file and save it to the `process.cwd()/<filename>` location.
-The scripts and other executers can reference the file using `process.cwd()/<filename>` path.
+format - `getit:<remote file location>#<filepath>`
+This handler will download the file and save it to the `process.cwd()/<filepath>` location.
+The scripts and other executers can reference the file using `process.cwd()/<filepath>` path.
+Eg:- `getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh`
+
 
 ### Tasks
 
+##### clean
+
+Clean the list of files/directories. This task can be added as a sub task for any Main tasks (init, build, bake, bundle etc)
+```javascript
+	"clean"	: [
+		"path:node_modules"
+	]
+```
+##### script
+
+Execute any script by specifying the relative, absolute or remote file location. 
+```javascript
+	
+	"script" : " path:nodefile.js"
+
+	"script" : "getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh"
+
+```
+
+##### files
+
+Download config/script files from remote location
+```javascript
+	"files"	: [
+		"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh"
+	]
+```
 ##### init
+
+Gets executed automatically before command execs (b3, b2, build etc). You can add any one of the sub tasks for this (clean,files, script)
+
+```javascript
+		"init" : {
+			"clean"	: [
+				"path:node_modules"
+			],
+			"script" : ""
+			"files"	: [
+				"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh"
+			]
+		}
+```
 ##### build
 ##### bake
 ##### bundle
 ##### metrics
-
-##### clean
-##### script
-##### files
 
 ### Generates build metrics
 

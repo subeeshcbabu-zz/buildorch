@@ -1,6 +1,7 @@
 {
 	"init" : {
 		"clean"	: [
+			"path:build.log"
 		],
 		"script" : ""
 	},

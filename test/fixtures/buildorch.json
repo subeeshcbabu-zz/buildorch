@@ -1,8 +1,6 @@
 {
 	"init" : {
-		"clean"	: [
-			
-		],
+		
 		"script" : "path:initscript.sh"
 	},
 
@@ -29,8 +27,4 @@
 		"script" : "path:bundlescript.sh"
 		
 	}
-
-
-	
-
 }
