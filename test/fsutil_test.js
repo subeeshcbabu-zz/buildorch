@@ -29,12 +29,13 @@ describe('Fsutil Test', function () {
 
     it('should copy the cwd files to sourcetemp', function (next) {
 
-		    var igList = [];
+		var igList = [];
         igList.push(source);      
         fsutil.copydir(process.cwd(), source, igList, function (err){
-          
-
-          next();
+            
+            assert.notOk(err);
+            //assert.strictEqual(true, fs.existsSync(path.join(process.cwd(), source, 'package.json')));
+            next();
         })
 		
     });

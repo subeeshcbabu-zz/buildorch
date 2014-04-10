@@ -5,5 +5,5 @@ test:
 	$(MOCHA) \
 		--require chai \
 		--reporter $(REPORTER) \
-		--timeout 10000 test/orchestrator_test.js
+		--timeout 10000 test
 .PHONY: test

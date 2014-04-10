@@ -24,49 +24,49 @@ describe('Orchestrator test', function () {
         process.chdir(pwd);
     });
 
-  //   it('should execute the build', function (next) {
+    it('should execute the build', function (next) {
 
-		// orchestrator.build(function(){
-  //           next();
-  //       });
+		 orchestrator.exec(['build'], function(err){
+            next();
+        });
 
 		
-  //   });
+    });
 
-    // it('should execute the bake', function (next) {
+    it('should execute the bake', function (next) {
 
-    //     orchestrator.bake(function(){
-    //         next();
-    //     });
-
-        
-    // });
-    
-    // it('should execute the bundle', function (next) {
-
-    //     orchestrator.bundle(function(){
-    //         next();
-    //     });
-
-        
-    // });
-
-    it('should execute the b2', function (next) {
-
-        orchestrator.exec(['build', 'bake', 'bundle'], function(){
+        orchestrator.exec(['bake'], function(err){
             next();
         });
 
         
     });
     
-    // it('should execute the b3', function (next) {
+    it('should execute the bundle', function (next) {
 
-    //     orchestrator.b3(function(){
-    //         next();
-    //     });
+        orchestrator.exec(['bundle'], function(err){
+            next();
+        });
 
         
-    // });
+    });
+
+    it('should execute the b2', function (next) {
+
+        orchestrator.exec(['build', 'bake'], function(err){
+            next();
+        });
+
+        
+    });
+    
+    it('should execute the b3', function (next) {
+
+        orchestrator.exec(['build', 'bake', 'bundle'], function(err){
+            next();
+        });
+
+        
+    });
 
 });
