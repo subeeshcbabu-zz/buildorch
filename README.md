@@ -1,8 +1,11 @@
 Buildorch
 =========
 
-
 [![NPM version](https://badge.fury.io/js/buildorch.svg)](http://badge.fury.io/js/buildorch)
+[![Build Status](https://travis-ci.org/subeeshcbabu/buildorch.svg?branch=master)](https://travis-ci.org/subeeshcbabu/buildorch)
+
+
+[![NPM](https://nodei.co/npm/buildorch.png)](https://nodei.co/npm/buildorch/)
 
 # Overview
 A Simple CLI based utility to Orchestrate NodeJs Application builds.
@@ -31,13 +34,14 @@ Commands
 	
 ### Pre Requisites
 Posix OS
+
 The commands should be executed at application root 
 
 ## Features:
 
 ### Configuration based 
 
-The build orchestartion works based on a JSON Configuration `buildorch.json`. If application did not specify a config json file, a default template is loaded. [buildorch.json](https://raw.github.com/subeeshcbabu/buildorch/master/config/buildorch.json). The config loader supports arbitrary types using the module [shortstop] (https://github.com/krakenjs/shortstop).
+The build orchestartion works based on JSON Configuration `buildorch.json`. If the application did not specify a config json file, a default template is loaded [buildorch.json](https://raw.github.com/subeeshcbabu/buildorch/master/config/buildorch.json). The config loader supports arbitrary types using the module [shortstop] (https://github.com/krakenjs/shortstop).
 
 A Sample `buildorch.json`
 ```js
