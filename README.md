@@ -1,6 +1,9 @@
 Buildorch
 =========
 
+
+[![NPM version](https://badge.fury.io/js/buildorch.svg)](http://badge.fury.io/js/buildorch)
+
 # Overview
 A Simple CLI based utility to Orchestrate NodeJs Application builds.
 The workflow has these three,
@@ -26,8 +29,9 @@ Commands
 	node_modules/.bin/buildorch bake
 	node_modules/.bin/buildorch bundle
 	
-### Pre Requisite
-Unix OS
+### Pre Requisites
+Posix OS
+The commands should be executed at application root 
 
 ## Features:
 
@@ -96,12 +100,15 @@ A Sample `buildorch.json`
 }
 ```
 #### Handlers
-##### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers) - path, file, and env
+##### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers) - path, file, env, exec etc.
 
 ##### getit handler
 format - `getit:<remote file location>#<filepath>`
+
 This handler will download the file and save it to the `process.cwd()/<filepath>` location.
+
 The scripts and other executers can reference the file using `process.cwd()/<filepath>` path.
+
 Eg:- `getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh`
 
 
@@ -150,9 +157,101 @@ Gets executed automatically before command execs (b3, b2, build etc). You can ad
 		}
 ```
 ##### build
+
+To execute the build task. Default command is `npm install`
+```javascript
+	"build" : {
+		"files" : [
+
+		],
+		"script" : "",
+		"execbuild" : {
+			"command" : "npm install"
+		},
+		"clean"	: [
+			
+		]
+	}
+```
 ##### bake
+
+To execute the tasks - `lint`, `unittest`, `coverage` and `custom`. The default task runner is [Grunt](http://gruntjs.com/).
+
+The `command` can be used to specify the tool/module used to execute the task. Another example would be `npm run-script`.
+It will execute the commands in sequential order. 
+
+npm run-script lint
+npm run-script test
+npm run-script coverage
+npm run-script build
+
+```javascript
+	"bake" : {
+		"files" : [
+
+		],
+		"script" : "",
+		"command" : "path:node_modules/.bin/grunt", OR  "command" : "npm run-script",
+		"execbake" : {
+			"lint" : "lint",
+			"unittest" : "test",
+			"coverage" : "coverage",
+			"custom" : "build"
+		},
+		"clean"	: [
+			
+		]
+	}
+```
 ##### bundle
+
+To bundle/assemble the source files to a predefined format.
+```javascript
+	"bundle" : {	
+ 		"files" : [
+
+		],	
+		"script" : "",
+		"execbundle" : {
+			"source" : "path:source",
+			"target" : "path:target",
+			"format" : "tgz", OR (tar, zip, copy, custom)
+			"ignorefile" : [
+				"path:.packageignore"
+			]
+		},
+		"clean"	: [
+			
+		]
+	}
+```
+	* `source` The source directory to copy over the files after executing the exclude list/ignore patterns. 
+	* `ignorefile` The list of files o specify the ignore patterns.
+
+	By default the following files are ignored [Default patterns] (https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/config/.defaultignore). Plus the `.packageignore` is automatically loaded if its present.
+
+
+	Add a .packageignore file (Make sure the file extension is not .txt) in the application root directory, to add the list of files/directories to be ignored. This supports regex expressions to match/find the list of files and works exactly like the `.gitignore`, `.jshintignore` etc
+
+	* `target` The target directory to save the bundled file. Default is process.cwd()/'target'.
+	* `format` The bundle format. Supported formats are `tar`, `tgz` and `zip`.
+
+	In addition to this there are two special types of values for this parameter
+	- `copy` This copies over the files from the process.cwd() to `source`. User can implement their own custom bundle process and invoke it using `script`.
+	- `custom` This completely ignores the bundle steps and uses whatever custom implement user specifies using `script`
+
+
 ##### metrics
+
+To generate the `build-metrics.json` file. 
+```javascript
+"metrics" : {
+		
+	"write" : {
+		"outfile" : "path:build-metrics.json"
+	}
+}
+```
 
 ### Generates build metrics
 
