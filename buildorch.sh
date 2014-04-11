@@ -109,10 +109,16 @@ function configureNPM {
 initBashProfile
 installNode
 
-echo "node exec path - `which node`"
-echo "node version `node -v`"
-echo "npm exec path `which npm`"
-echo "npm version `npm -v`"
+export NODE_EXEC_PATH=`which node`
+export NODE_VERSION=`node -v`
+export NPM_EXEC_PATH=`which npm`
+export NPM_VERSION=`npm -v`
+
+echo "node exec path - $NODE_EXEC_PATH"
+echo "node version $NODE_VERSION"
+echo "npm exec path $NPM_EXEC_PATH"
+echo "npm version $NPM_VERSION"
+
 
 configureNPM
 

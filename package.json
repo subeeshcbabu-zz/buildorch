@@ -45,7 +45,8 @@
     "debug": "~0.8.0",
     "log4js": "~0.6.12",
     "archiver": "~0.8.1",
-    "minimatch": "~0.2.14"
+    "minimatch": "~0.2.14",
+    "rsyncwrapper": "~0.3.0"
   },
   "devDependencies": {
     "mocha": "~1.18.2",

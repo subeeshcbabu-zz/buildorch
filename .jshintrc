@@ -71,7 +71,7 @@
     "forin": false,
     // Whether immediate invocations must be wrapped in parens, e.g.
     // `( function(){}() );`.
-    "immed": true,
+    "immed": false,
     // Whether use before define should be forbidden.
     "latedef": false,
     // Whether functions should be allowed to be defined within loops.
@@ -91,7 +91,7 @@
     // Whether variables must be declared before used.
     "undef": true,
     // Whether `this` inside a non-constructor function should be allowed.
-    "validthis": false,
+    "validthis": true,
     // Whether smarttabs should be allowed
     // (http://www.emacswiki.org/emacs/SmartTabs).
     "smarttabs": true,
