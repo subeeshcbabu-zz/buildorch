@@ -229,20 +229,26 @@ To bundle/assemble the source files to a predefined format.
 		]
 	}
 ```
-	* `source` The source directory to copy over the files after executing the exclude list/ignore patterns. 
-	* `ignorefile` The list of files o specify the ignore patterns.
 
-	By default the following files are ignored [Default patterns] (https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/config/.defaultignore). Plus the `.packageignore` is automatically loaded if its present.
+`source` The source directory to copy over the files after executing the exclude list/ignore patterns. 
+
+`ignorefile` The list of files o specify the ignore patterns.
+
+By default the following files are ignored [Default patterns] (https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/config/.defaultignore). Plus the `.packageignore` is automatically loaded if its present.
 
 
-	Add a .packageignore file (Make sure the file extension is not .txt) in the application root directory, to add the list of files/directories to be ignored. This supports regex expressions to match/find the list of files and works exactly like the `.gitignore`, `.jshintignore` etc
+Add a .packageignore file (Make sure the file extension is not .txt) in the application root directory, to add the list of files/directories to be ignored. This supports regex expressions to match/find the list of files and works exactly like the `.gitignore`, `.jshintignore` etc
 
-	* `target` The target directory to save the bundled file. Default is process.cwd()/'target'.
-	* `format` The bundle format. Supported formats are `tar`, `tgz` and `zip`.
+`target` The target directory to save the bundled file. Default is process.cwd()/'target'.
 
-	In addition to this there are two special types of values for this parameter
-	- `copy` This copies over the files from the process.cwd() to `source`. User can implement their own custom bundle process and invoke it using `script`.
-	- `custom` This completely ignores the bundle steps and uses whatever custom implement user specifies using `script`
+`format` The bundle format. Supported formats are `tar`, `tgz` and `zip`.
+
+
+In addition to this there are two special types of values for this parameter.
+
+`copy` This copies over the files from the process.cwd() to `source`. User can implement their own custom bundle process and invoke it using `script`.
+
+`custom` This completely ignores the bundle steps and uses whatever custom implement user specifies using `script`
 
 
 ##### metrics
