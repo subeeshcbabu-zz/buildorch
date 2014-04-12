@@ -58,10 +58,11 @@ A Sample `buildorch.json`
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
-		"script" : "path:buildscript.sh",
+		"prescript" : "path:prebuildscript.sh",
 		"execbuild" : {
 			"command" : "npm install"
 		},
+		"postscript" : "path:postbuildscript.sh",
 		"clean"	: [
 			
 		]
@@ -71,13 +72,14 @@ A Sample `buildorch.json`
 		"files" : [
 
 		],
-		"script" : "path:bakescript.sh",
+		"prescript" : "path:prebakescript.sh",
 		"execbake" : {
 			"lint" : "lint",
 			"unittest" : "test",
 			"coverage" : "coverage",
 			"custom" : "build"
 		},
+		"postscript" : "path:postbakescript.sh",
 		"clean"	: [
 			
 		]
@@ -87,11 +89,12 @@ A Sample `buildorch.json`
  		"files" : [
 
 		],	
-		"script" : "path:bundlescript.sh",
+		"prescript" : "path:prebundlescript.sh",
 		"execbundle" : {
 			"target" : "target",
 			"format" : "tar"
 		},
+		"postscript" : "path:postbundlescript.sh",
 		"clean"	: [
 			
 		]
@@ -127,6 +130,8 @@ Clean the list of files/directories. This task can be added as a sub task for an
 	]
 ```
 ##### script
+
+This can be `script`, `prescript` or `postscript`.
 
 Execute any script by specifying the relative, absolute or remote file location. 
 ```javascript

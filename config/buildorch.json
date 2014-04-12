@@ -10,10 +10,11 @@
 		"files" : [
 
 		],
-		"script" : "",
+		"prescript" : "",
 		"execbuild" : {
 			"command" : "npm install"
 		},
+		"postscript" : "",
 		"clean"	: [
 			
 		]
@@ -23,7 +24,7 @@
 		"files" : [
 
 		],
-		"script" : "",
+		"prescript" : "",
 		"command" : "path:node_modules/.bin/grunt", 
 		"execbake" : {
 			"lint" : "lint",
@@ -31,6 +32,7 @@
 			"coverage" : "coverage",
 			"custom" : "build"
 		},
+		"postscript" : "",
 		"clean"	: [
 			
 		]
@@ -40,7 +42,7 @@
  		"files" : [
 
 		],	
-		"script" : "",
+		"prescript" : "",
 		"execbundle" : {
 			"target" : "path:target",
 			"format" : "tgz",
@@ -48,6 +50,7 @@
 				"path:.packageignore"
 			]
 		},
+		"postscript" : "",
 		"clean"	: [
 			
 		]

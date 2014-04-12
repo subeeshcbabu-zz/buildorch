@@ -35,7 +35,8 @@ describe('b3 config test', function () {
            //path for script
            assert.strictEqual(path.join(process.cwd(),'initscript.sh'),config.get('init').script);
            assert.strictEqual(path.join(process.cwd(),'buildscript.sh'),config.get('build').script);
-           assert.strictEqual(path.join(process.cwd(),'bakescript.sh'),config.get('bake').script);
+           assert.strictEqual(path.join(process.cwd(),'bakescript.sh'),config.get('bake').prescript);
+            assert.strictEqual(path.join(process.cwd(),'bakescript.sh'),config.get('bake').postscript);
            assert.strictEqual(path.join(process.cwd(),'bundlescript.sh'),config.get('bundle').script);
            //get it
            assert.strictEqual(path.join(process.cwd(),'buildorch.sh'),config.get('build').files[0]);

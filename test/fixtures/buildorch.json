@@ -1,6 +1,8 @@
 {
 	"init" : {
-		
+		"clean" : [
+			"path:node_modules"
+		],
 		"script" : "path:initscript.sh"
 	},
 
@@ -9,14 +11,13 @@
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
-		"script" : "path:buildscript.sh",
-		"clean" : [
-			"path:node_modules"
-		]
+		"script" : "path:buildscript.sh"
+		
 	},
 
 	"bake" : {
-		"script" : "path:bakescript.sh"
+		"prescript" : "path:bakescript.sh",
+		"postscript" : "path:bakescript.sh"
 	},
 
 	"bundle" : {
