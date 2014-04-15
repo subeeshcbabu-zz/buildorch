@@ -280,51 +280,57 @@ A sample `build-metrics.json`
   "userid" : "bar",
   "machine" : "blah",
   "environment" "development",
-  "starttime": "2014-04-07T22:24:56.923Z",
+  "starttime": "2014-04-07 22:24:56",
 
   "init": {
-    "starttime": "2014-04-07T21:17:25.882Z",
-    "endtime": "2014-04-07T21:17:25.989Z"
+    "starttime": "2014-04-07 21:17:25",
+    "endtime": "2014-04-07 21:17:25"
   },
 
   "build": {
-    "starttime": "2014-04-07T21:17:25.989Z",
-    "endtime": "2014-04-07T21:17:28.622Z"
+    "starttime": "2014-04-07 21:17:25",
+    "endtime": "2014-04-07 21:17:28"
   },
 
   "bake": {
-    "starttime": "2014-04-07T21:17:28.622Z",
+    "starttime": "2014-04-07 21:17:28",
 
     "lint": {
-      "starttime": "2014-04-07T21:17:28.627Z",
-      "endtime": "2014-04-07T21:17:28.866Z",
+      "starttime": "2014-04-07 21:17:28",
+      "endtime": "2014-04-07 21:17:28",
       "status": "SUCCESS"
     },
 
     "unittest": {
-      "starttime": "2014-04-07T21:17:28.866Z",
-      "endtime": "2014-04-07T21:17:29.248Z",
+      "starttime": "2014-04-07 21:17:28",
+      "endtime": "2014-04-07 21:17:29",
       "status": "FAILURE"
     },
 
     "coverage": {
-      "starttime": "2014-04-07T21:17:29.248Z",
-      "endtime": "2014-04-07T21:17:29.487Z",
+      "starttime": "2014-04-07 21:17:29",
+      "endtime": "2014-04-07 21:17:29",
       "status": "SUCCESS"
     },
 
     "custom": {
-      "starttime": "2014-04-07T21:17:29.487Z",
-      "endtime": "2014-04-07T21:17:29.725Z",
+      "starttime": "2014-04-07 21:17:29",
+      "endtime": "2014-04-07 21:17:29",
       "status": "SUCCESS"
     },
 
-    "endtime": "2014-04-07T21:17:29.726Z"
+    "endtime": "2014-04-07 21:17:29"
   },
 
-  "endtime": "2014-04-07T22:21:16.262Z",
+  "endtime": "2014-04-07 22:21:16",
   "status": "SUCCESS"
 }
 ```
+
+### TODO
+
+- config to control fail on error
+- config to skip the bake tasks
+- actual time spent in addition to starttime and endtime
 
 
