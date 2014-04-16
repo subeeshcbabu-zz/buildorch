@@ -2,7 +2,7 @@
 # The Init Script for Node and NPM Install and Configurations
 #
 #
-echo "************************ Start Init *************************"
+
 ## CONSTANTS and Parameters
 node_default_ver=v0.10.25
 bash_profile=$HOME/.bash_profile
@@ -43,10 +43,38 @@ function validateVersion {
 }
 
 ##
+## Set the NPM Configurations
+##
+function configureNPM {
+
+	if [ ! -z "$NPM_REGISTRY" ]; then
+		echo "Set the npm config registry to $NPM_REGISTRY"
+		npm config set registry $NPM_REGISTRY
+	fi
+
+	if [ ! -z "$NPM_CACHE" ]; then
+		echo "Set the npm config cache to $NPM_CACHE"
+		npm config set cache $NPM_CACHE
+	fi
+
+	if [ ! -z "$NPM_TMP" ]; then
+		echo "Set the npm config tmp to $NPM_TMP"
+		npm config set tmp $NPM_TMP
+	fi
+
+
+	if [ ! -z "$PYTHON_PATH" ]; then
+		echo "Set the npm config python to $PYTHON_PATH"
+		npm config set python $PYTHON_PATH
+	fi
+}
+
+##
 ## Install the node and npm using NVM module
 ##
 function installNode {
-
+	echo "************************ Start install *************************"
+	initBashProfile
 	node_ver=$node_default_ver
 	# Read the user requested version
 	if [ ! -z "$NODE_VERSION" ]; then
@@ -77,53 +105,23 @@ function installNode {
 		fi
 	fi
 
+	export NODE_EXEC_PATH=`which node`
+	export NODE_VERSION=`node -v`
+	export NPM_EXEC_PATH=`which npm`
+	export NPM_VERSION=`npm -v`
+	node_dir=`dirname $NODE_EXEC_PATH`
+	export NODE_EXEC_DIR=$node_dir
+	export PATH=$NODE_EXEC_DIR:$PATH
+
+	echo "node exec path - $NODE_EXEC_PATH"
+	echo "node version $NODE_VERSION"
+	echo "npm exec path $NPM_EXEC_PATH"
+	echo "npm version $NPM_VERSION"
+	echo "node exec dir $NODE_EXEC_DIR"
+	echo "PATH $PATH"
+
+	configureNPM
+
+	echo "************************ End Init *************************"
+	exit 0
 }
-
-##
-## Set the NPM Configurations
-##
-function configureNPM {
-
-	if [ ! -z "$NPM_REGISTRY" ]; then
-		echo "Set the npm config registry to $NPM_REGISTRY"
-		npm config set registry $NPM_REGISTRY
-	fi
-
-	if [ ! -z "$NPM_CACHE" ]; then
-		echo "Set the npm config cache to $NPM_CACHE"
-		npm config set cache $NPM_CACHE
-	fi
-
-	if [ ! -z "$NPM_TMP" ]; then
-		echo "Set the npm config tmp to $NPM_TMP"
-		npm config set tmp $NPM_TMP
-	fi
-
-
-	if [ ! -z "$PYTHON_PATH" ]; then
-		echo "Set the npm config python to $PYTHON_PATH"
-		npm config set python $PYTHON_PATH
-	fi
-}
-
-initBashProfile
-installNode
-
-export NODE_EXEC_PATH=`which node`
-export NODE_VERSION=`node -v`
-export NPM_EXEC_PATH=`which npm`
-export NPM_VERSION=`npm -v`
-
-echo "node exec path - $NODE_EXEC_PATH"
-echo "node version $NODE_VERSION"
-echo "npm exec path $NPM_EXEC_PATH"
-echo "npm version $NPM_VERSION"
-
-
-configureNPM
-
-
-
-
-echo "************************ End Init *************************"
-exit 0
