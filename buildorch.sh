@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # The Init Script for Node and NPM Install and Configurations
 #
 #
