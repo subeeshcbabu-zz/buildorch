@@ -101,7 +101,7 @@ function installNode {
 		else
 			echo "Failed to install the node version $node_ver using NVM"
 			#TODO what to do if the NVM Install fails? Exit the CI Build?
-			exit 1
+			#exit 1
 		fi
 	fi
 
@@ -123,5 +123,5 @@ function installNode {
 	configureNPM
 
 	echo "************************ End Init *************************"
-	exit 0
+	#exit 0
 }
