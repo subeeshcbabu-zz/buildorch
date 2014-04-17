@@ -84,7 +84,7 @@ function installNode {
 	# validate the existing version
 	if [[ $(validateVersion "node -v" "$node_ver") = 0 ]]; then
 		echo "Installed node version: $node_ver"
-	elif [[ $(validateVersion "nvm ls $node_ver" "$node_ver") = 0 ]]; then
+	elif [[ $(validateVersion "nvm ls" "$node_ver") = 0 ]]; then
 		echo "Installed node version: `nvm ls $node_ver`"
 		nvm use $node_ver
 	else
