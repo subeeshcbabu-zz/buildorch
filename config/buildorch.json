@@ -25,12 +25,12 @@
 
 		],
 		"prescript" : "",
-		"command" : "path:node_modules/.bin/grunt", 
+		"command" : "path:node_modules/.bin/grunt",
+		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
 			"lint" : "lint",
 			"unittest" : "test",
-			"coverage" : "coverage",
-			"custom" : "build"
+			"coverage" : "coverage"
 		},
 		"postscript" : "",
 		"clean"	: [
