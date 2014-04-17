@@ -1,6 +1,6 @@
 {
   "name": "buildorch",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Simple CLI based utility to Build, Beat and Bundle (b3), a NodeJs Application.",
   "main": "index.js",
   "scripts": {
