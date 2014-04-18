@@ -28,9 +28,21 @@
 		"command" : "path:node_modules/.bin/grunt",
 		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
-			"lint" : "lint",
-			"unittest" : "test",
-			"coverage" : "coverage"
+			"lint" : {
+				"task" : "lint",
+				"skip" : "env:SKIP_LINT|b",
+				"failonerror" : true
+			},
+			"unittest" : {
+				"task" : "test",
+				"skip" : "env:SKIP_TEST|b",
+				"failonerror" : true
+			},
+			"coverage" : {
+				"task" : "coverage",
+				"skip" : "env:SKIP_COVERAGE|b",
+				"failonerror" : true
+			}
 		},
 		"postscript" : "",
 		"clean"	: [

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('lint', ['jshint']);
-  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('test', ['jshin']);
   grunt.registerTask('coverage', ['jshint']);
 
   grunt.registerTask('default', ['test']);

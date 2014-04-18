@@ -20,3 +20,8 @@
 /build-*.json
 /checkstyle.xml
 /xunit.xml
+
+/buildorch.sh
+/buildorch.json
+/build.log
+/build-metrics.json

@@ -1,6 +1,6 @@
 {
   "name": "buildorch",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Simple CLI based utility to Build, Beat and Bundle (b3), a NodeJs Application.",
   "main": "index.js",
   "scripts": {
@@ -37,16 +37,14 @@
     "commander": "~2.1.0",
     "nconf": "~0.6.9",
     "shortstop": "~1.0.0",
-    "shortstop-handlers": "~0.1.0",
+    "shortstop-handlers": "git://github.com/subeeshcbabu/shortstop-handlers.git",
     "jsonminify": "~0.2.3",
     "async": "~0.2.10",
     "shelljs": "~0.2.6",
     "getit": "~0.4.1",
     "debug": "~0.8.0",
     "log4js": "~0.6.12",
-    "archiver": "~0.8.1",
-    "minimatch": "~0.2.14",
-    "rsyncwrapper": "~0.3.0"
+    "archiver": "~0.8.1"
   },
   "devDependencies": {
     "mocha": "~1.18.2",

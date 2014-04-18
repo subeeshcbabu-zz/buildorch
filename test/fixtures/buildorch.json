@@ -17,6 +17,23 @@
 
 	"bake" : {
 		"prescript" : "path:bakescript.sh",
+		"execbake" : {
+			"lint" : {
+				"task" : "lint",
+				"skip" : "env:SKIP_LINT|b",
+				"failonerror" : true
+			},
+			"unittest" : {
+				"task" : "test",
+				"skip" : "env:SKIP_TEST|b",
+				"failonerror" : false
+			},
+			"coverage" : {
+				"task" : "coverage",
+				"skip" : "env:SKIP_COVERAGE|b",
+				"failonerror" : true
+			}
+		},
 		"postscript" : "path:bakescript.sh"
 	},
 

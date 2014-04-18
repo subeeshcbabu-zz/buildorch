@@ -73,12 +73,25 @@ A Sample `buildorch.json`
 		"files" : [
 
 		],
+		"scriptprefix" : "/bin/bash", // OR "/usr/local/node/bin/node" - Optional
 		"prescript" : "path:prebakescript.sh",
+		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
-			"lint" : "lint",
-			"unittest" : "test",
-			"coverage" : "coverage",
-			"custom" : "build"
+			"lint" : {
+				"task" : "lint",
+				"skip" : "env:SKIP_LINT|b",
+				"failonerror" : true
+			},
+			"unittest" : {
+				"task" : "test",
+				"skip" : "env:SKIP_TEST|b",
+				"failonerror" : true
+			},
+			"coverage" : {
+				"task" : "coverage",
+				"skip" : "env:SKIP_COVERAGE|b",
+				"failonerror" : true
+			}
 		},
 		"postscript" : "path:postbakescript.sh",
 		"clean"	: [
@@ -185,10 +198,15 @@ To execute the build task. Default command is `npm install`
 ```
 ##### bake
 
-To execute the tasks - `lint`, `unittest`, `coverage` and `custom`. The default task runner is [Grunt](http://gruntjs.com/).
+To execute the tasks - `lint`, `unittest`, and `coverage`. The default task runner is [Grunt](http://gruntjs.com/).
 
 The `command` can be used to specify the tool/module used to execute the task. Another example would be `npm run-script`.
 It will execute the commands in sequential order. 
+
+Also, you can define a custom task using the `custom` key.
+The SKIP_LINT, SKIP_TEST and SKIP_COVERAGE are already defined part the default config. Developers are free to use any ENV property for this using the [Shortstop env handler](https://github.com/subeeshcbabu/shortstop-handlers#handlersenv)
+
+The `failonerror` is by default set to `true`.
 
 npm run-script lint
 npm run-script test
@@ -200,13 +218,30 @@ npm run-script build
 		"files" : [
 
 		],
+		"scriptprefix" : "",
 		"script" : "",
-		"command" : "path:node_modules/.bin/grunt", OR  "command" : "npm run-script",
+		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
-			"lint" : "lint",
-			"unittest" : "test",
-			"coverage" : "coverage",
-			"custom" : "build"
+			"lint" : {
+				"task" : "lint",
+				"skip" : "env:SKIP_LINT|b",
+				"failonerror" : true
+			},
+			"unittest" : {
+				"task" : "test",
+				"skip" : "env:SKIP_TEST|b",
+				"failonerror" : true
+			},
+			"coverage" : {
+				"task" : "coverage",
+				"skip" : "env:SKIP_COVERAGE|b",
+				"failonerror" : true
+			},
+			"custom" : {
+				"task" : "build",
+				"skip" : "env:SKIP_CUSTOM|b",
+				"failonerror" : true
+			}
 		},
 		"clean"	: [
 			
@@ -330,8 +365,6 @@ A sample `build-metrics.json`
 
 ### TODO
 
-- config to control fail on error
-- config to skip the bake tasks
 - actual time spent in addition to starttime and endtime
 
 
