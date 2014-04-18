@@ -11,7 +11,7 @@
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
-		"script" : "path:buildscript.sh"
+		"script" : "getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/test/fixtures/buildscript.sh"
 		
 	},
 
