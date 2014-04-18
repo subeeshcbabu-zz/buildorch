@@ -56,6 +56,9 @@ A Sample `buildorch.json`
 	},
 
 	"build" : {
+		"preclean"	: [
+			
+		],
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
@@ -64,7 +67,7 @@ A Sample `buildorch.json`
 			"command" : "npm install"
 		},
 		"postscript" : "path:postbuildscript.sh",
-		"clean"	: [
+		"postclean"	: [
 			
 		]
 	},
@@ -94,7 +97,7 @@ A Sample `buildorch.json`
 			}
 		},
 		"postscript" : "path:postbakescript.sh",
-		"clean"	: [
+		"postclean"	: [
 			
 		]
 	},
@@ -109,7 +112,7 @@ A Sample `buildorch.json`
 			"format" : "tar"
 		},
 		"postscript" : "path:postbundlescript.sh",
-		"clean"	: [
+		"postclean"	: [
 			
 		]
 	},
@@ -137,6 +140,7 @@ Eg:- `getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buil
 
 ##### clean
 
+This can be `clean`, `preclean` or `postsclean`
 Clean the list of files/directories. This task can be added as a sub task for any Main tasks (init, build, bake, bundle etc)
 ```javascript
 	"clean"	: [

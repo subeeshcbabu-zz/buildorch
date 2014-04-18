@@ -16,7 +16,7 @@
 	},
 
 	"bake" : {
-		"prescript" : "path:bakescript.sh",
+		"prescript" : "path:prebakescript.sh",
 		"execbake" : {
 			"lint" : {
 				"task" : "lint",
@@ -34,7 +34,7 @@
 				"failonerror" : true
 			}
 		},
-		"postscript" : "path:bakescript.sh"
+		"postscript" : "path:postbakescript.sh"
 	},
 
 	"bundle" : {

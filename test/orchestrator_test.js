@@ -66,7 +66,7 @@ describe('Orchestrator test', function () {
     
     it('should execute the b3', function (next) {
 
-        orchestrator.exec(['build', 'bake', 'bundle'], function(err){
+        orchestrator.exec(['build', 'bake'], function(err){
             assert.notOk(err);
             next();
         });
