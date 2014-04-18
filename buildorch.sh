@@ -87,6 +87,7 @@ function installNode {
 	elif [[ $(validateVersion "nvm ls" "$node_ver") = 0 ]]; then
 		echo "Installed node version: `nvm ls $node_ver`"
 		nvm use $node_ver
+		node_dir=$HOME/.nvm/$node_ver
 	else
 		echo "node version to install: $node_ver"
 		# Install Node using NVM - https://github.com/creationix/nvm
@@ -109,7 +110,9 @@ function installNode {
 	export NODE_VERSION=`node -v`
 	export NPM_EXEC_PATH=`which npm`
 	export NPM_VERSION=`npm -v`
-	node_dir=`dirname $NODE_EXEC_PATH`
+	if [ -z "$node_dir" ]; then
+		node_dir=`dirname $NODE_EXEC_PATH`
+	fi
 	export NODE_EXEC_DIR=$node_dir
 	export PATH=$NODE_EXEC_DIR:$PATH
 
