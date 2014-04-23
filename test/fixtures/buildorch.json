@@ -7,7 +7,7 @@
 	},
 
 	"build" : {
-		"scriptprefix" : "/bin/bash",
+		
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
