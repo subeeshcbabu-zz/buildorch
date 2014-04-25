@@ -2,6 +2,7 @@
 var path = require('path'),
     assert = require('chai').assert,
     fs = require('fs'),
+    shell = require('shelljs'),
     orchestrator = require('../lib/orchestrator');
 
 describe('Orchestrator test', function () {
@@ -15,7 +16,7 @@ describe('Orchestrator test', function () {
         //change the working dir to Fixtures
         process.chdir(path.join(__dirname, 'fixtures'));
         console.log('Changed working dir to -->', process.cwd());
-        
+        shell.exec("npm install ../../");
     });
 
     after(function () {
@@ -64,14 +65,17 @@ describe('Orchestrator test', function () {
         
     // });
     
-    it('should execute the b3', function (next) {
+    it('should execute the b3 Async', function (next) {
 
         orchestrator.exec(['build', 'bake'], function(err){
-            assert.notOk(err);
+
+            assert.isArray(err);
+            assert.ok(err.length === 0);
             next();
         });
 
         
     });
+
 
 });

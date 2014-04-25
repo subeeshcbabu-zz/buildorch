@@ -11,8 +11,28 @@
 		"files" : [
 			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh"
 		],
-		"script" : "getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/test/fixtures/buildscript.sh"
-		
+		"script" : "getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/test/fixtures/buildscript.sh",
+		"execbuild" : {
+			
+			"npm" : {
+				"command" : "npm",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
+				"failonerror" : true
+			},
+			"async" : {
+				"command" : "npm",
+				"task" : "install async",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
+				"failonerror" : true
+			},
+			"bower" : {
+				"command" : "path:node_modules/bower/bin/bower",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerInstall",
+				"failonerror" : false
+			}
+		}
 	},
 
 	"bake" : {
@@ -33,6 +53,11 @@
 				"task" : "coverage",
 				"skip" : "env:SKIP_COVERAGE|b",
 				"failonerror" : true
+			},
+			"dust" : {
+				"task" : "dust",
+				"skip" : "env:SKIP_DUST|b",
+				"failonerror" : false
 			}
 		},
 		"postscript" : "path:postbakescript.sh"

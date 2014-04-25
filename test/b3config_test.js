@@ -2,7 +2,7 @@
 var path = require('path'),
     assert = require('chai').assert,
     fs = require('fs'),
-   // shell = require('shelljs'),
+    shell = require('shelljs'),
     b3config = require('../lib/b3config');
 
 describe('b3 config test', function () {
@@ -14,7 +14,9 @@ describe('b3 config test', function () {
         pwd = process.cwd();
         //change the working dir to Fixtures
         process.chdir(path.join(__dirname, 'fixtures'));
+
         console.log('Changed working dir to -->', process.cwd());
+        shell.exec("npm install ../../");
         
     });
 

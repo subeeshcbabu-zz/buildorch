@@ -14,7 +14,19 @@
 		],
 		"prescript" : "",
 		"execbuild" : {
-			"command" : "npm install"
+			
+			"npm" : {
+				"command" : "npm",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
+				"failonerror" : true
+			},
+			"bower" : {
+				"command" : "path:node_modules/bower/bin/bower",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerInstall",
+				"failonerror" : false
+			}
 		},
 		"postscript" : "",
 		"postclean"	: [

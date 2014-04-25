@@ -65,7 +65,18 @@ A Sample `buildorch.json`
 		],
 		"prescript" : "path:prebuildscript.sh",
 		"execbuild" : {
-			"command" : "npm install"
+			"npm" : {
+				"command" : "npm",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
+				"failonerror" : true
+			},
+			"bower" : {
+				"command" : "path:node_modules/bower/bin/bower",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerInstall",
+				"failonerror" : false
+			}
 		},
 		"postscript" : "path:postbuildscript.sh",
 		"postclean"	: [
@@ -186,7 +197,9 @@ Gets executed automatically before command execs (b3, b2, build etc). You can ad
 ```
 ##### build
 
-To execute the build task. Default command is `npm install`
+To execute the build task. By Default `npm install` and `node_modules/bower/bin/bower install` are executed.
+The default validator used for npm install and bower install checks are defined in `lib/util/validateutil`
+
 ```javascript
 	"build" : {
 		"files" : [
@@ -194,7 +207,18 @@ To execute the build task. Default command is `npm install`
 		],
 		"script" : "",
 		"execbuild" : {
-			"command" : "npm install"
+			"npm" : {
+				"command" : "npm",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
+				"failonerror" : true
+			},
+			"bower" : {
+				"command" : "path:node_modules/bower/bin/bower",
+				"task" : "install",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerInstall",
+				"failonerror" : false
+			}
 		},
 		"clean"	: [
 			
@@ -371,5 +395,8 @@ A sample `build-metrics.json`
 ### TODO
 
 - actual time spent in addition to starttime and endtime
+- bower install
+- number test failures, number of lint errors
+- Error codes
 
 
