@@ -37,7 +37,7 @@
     "commander": "~2.1.0",
     "nconf": "~0.6.9",
     "shortstop": "~1.0.0",
-    "shortstop-handlers": "git://github.com/subeeshcbabu/shortstop-handlers.git",
+    "shortstop-handlers": "git+https://github.com/subeeshcbabu/shortstop-handlers.git",
     "jsonminify": "~0.2.3",
     "async": "~0.2.10",
     "shelljs": "~0.2.6",
