@@ -18,7 +18,7 @@ The workflow has these three,
 
 Init script to install nodejs and npm and configure the npm defaults
 	
-	curl -k https://raw.github.com/subeeshcbabu/buildorch/master/buildorch.sh buildorch.sh
+	curl -k https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh
     source buildorch.sh
     installNode
 
@@ -139,25 +139,28 @@ A Sample `buildorch.json`
 ##### [shortstop-handlers] (https://github.com/krakenjs/shortstop-handlers) - path, file, env, exec etc.
 
 ##### getit handler
+
 format - `getit:<url>#[target_location]#[ENV shouldDownload?],[nooverride]`
 
-<url> - The remote URL from where the content is downloaded.
+- <url> - The remote URL from where the content is downloaded.
 
-[target_location] - optional. The local path (relative to cwd) to save the file.
+- [target_location] - optional. The local path (relative to cwd) to save the file.
 
-[ENV shouldDownload?] -  optional. The ENV to decide whether to download the file or not. `process.env.[ENV  shouldDownload?]` should be true to download the file.
+- [ENV shouldDownload?] -  optional. The ENV to decide whether to download the file or not. `process.env.[ENV  shouldDownload?]` should be true to download the file.
 
-[nooverride] - optional. If added, the download will not happen if file exists.
+- [nooverride] - optional. If added, the download will not happen if file exists.
 
 This handler will download the file and save it to the `process.cwd()/<filepath>` location.
 
 The scripts and other executers can reference the file using `process.cwd()/<filepath>` path.
 
-Eg:- `getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh`
+Eg:- 
 
-`getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build_init.sh#REQUIRE_BUILD,nooverride`
+getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build/build_init.sh
 
-`getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#abc.sh#nooverride`
+getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#build_init.sh#REQUIRE_BUILD,nooverride
+
+getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh#abc.sh#nooverride
 
 
 ### Tasks
