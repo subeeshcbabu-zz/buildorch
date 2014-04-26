@@ -1,9 +1,13 @@
 {
 	"init" : {
 		"clean" : [
-			"path:node_modules"
 		],
-		"script" : "path:initscript.sh"
+		"script" : "path:initscript.sh",
+		"files" : [
+			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/.jshintrc#jsnint/.jshintrc#REQUIRE_JSHINT,nooverride",
+			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/.jshintignore#.jshintignore#nooverride",
+			"getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/test/fixtures/Gruntfile.js#gruntfile.js#REQUIRE_GRUNT,nooverride"
+		]
 	},
 
 	"build" : {
@@ -13,24 +17,11 @@
 		],
 		"script" : "getit:https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/test/fixtures/buildscript.sh",
 		"execbuild" : {
-			
-			"npm" : {
-				"command" : "npm",
-				"task" : "install",
-				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
-				"failonerror" : true
-			},
 			"async" : {
 				"command" : "npm",
 				"task" : "install async",
 				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
 				"failonerror" : true
-			},
-			"bower" : {
-				"command" : "path:node_modules/bower/bin/bower",
-				"task" : "install",
-				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerInstall",
-				"failonerror" : false
 			}
 		}
 	},

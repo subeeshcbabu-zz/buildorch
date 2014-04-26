@@ -87,6 +87,10 @@ function orchestrate(tasks) {
 	child.on('exit', function (code) {
 		console.error('Buildorch exited with error ', code);
 	});
+
+	child.on('close', function (code, signal) {
+		console.log('Buildorch terminated due to receipt of signal ' + signal);
+	});
 	
 	child.send(JSON.stringify(options));
 	child.unref();

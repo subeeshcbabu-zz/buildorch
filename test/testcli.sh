@@ -2,6 +2,7 @@
 
 cd "$( dirname $0 )/fixtures"
 pwd
+rm -rf node_modules
 npm install ../../
 echo "Executing the CLI"
 node_modules/.bin/buildorch b3

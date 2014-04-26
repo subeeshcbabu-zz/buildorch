@@ -41,4 +41,5 @@ Thumbs.db
 build-metrics.json
 /test/fixtures/buildorch.sh
 /test/fixtures/target
-test/fixtures/.defaultignore
+/test/fixtures/.defaultignore
+/test/fixtures/jshint

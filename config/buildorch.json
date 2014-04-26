@@ -21,6 +21,12 @@
 				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipNpmInstall",
 				"failonerror" : true
 			},
+			"gruntcli" : {
+				"command" : "npm",
+				"task" : "install grunt-cli@~0.1.11",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipGruntCLIInstall",
+				"failonerror" : true
+			},
 			"bower" : {
 				"command" : "path:node_modules/bower/bin/bower",
 				"task" : "install",
@@ -42,7 +48,6 @@
 		],
 		"prescript" : "",
 		"command" : "path:node_modules/.bin/grunt",
-		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
 			"lint" : {
 				"task" : "lint",
