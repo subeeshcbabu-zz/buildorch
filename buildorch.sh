@@ -91,7 +91,7 @@ function installNode {
 	else
 		echo "node version to install: $node_ver"
 		# Install Node using NVM - https://github.com/creationix/nvm
-		curl https://raw.github.com/creationix/nvm/master/install.sh | /bin/sh
+		curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | /bin/sh
 		source $bash_profile
 		nvm install $node_ver
 		nvm use $node_ver

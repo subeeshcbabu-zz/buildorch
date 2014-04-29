@@ -57,7 +57,8 @@
 	"bundle" : {
 		
 		"execbundle" : {
-			"format" : "tar"
+			"format" : "copy",
+			"source" : "path:tempsource"
 		},
 		"script" : "path:bundlescript.sh"
 		
