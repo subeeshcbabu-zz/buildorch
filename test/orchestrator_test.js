@@ -67,7 +67,7 @@ describe('Orchestrator test', function () {
     
     it('should execute the b3 Async', function (next) {
 
-        orchestrator.exec(['build', 'bake'], function(err){
+        orchestrator.exec(['build', 'bake', 'bundle'], function(err){
 
             assert.isArray(err);
             assert.ok(err.length === 0);
