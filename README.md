@@ -89,8 +89,7 @@ A Sample `buildorch.json`
 
 		],
 		"scriptprefix" : "/bin/bash", // OR "/usr/local/node/bin/node" - Optional
-		"prescript" : "path:prebakescript.sh",
-		"gruntcli" : "grunt-cli@~0.1.11", 
+		"prescript" : "path:prebakescript.sh", 
 		"execbake" : {
 			"lint" : {
 				"task" : "lint",
@@ -264,7 +263,6 @@ npm run-script build
 		],
 		"scriptprefix" : "",
 		"script" : "",
-		"gruntcli" : "grunt-cli@~0.1.11", 
 		"execbake" : {
 			"lint" : {
 				"task" : "lint",
@@ -359,58 +357,68 @@ A sample `build-metrics.json`
   "application" : "foo",
   "userid" : "bar",
   "machine" : "blah",
-  "environment" "development",
-  "starttime": "2014-04-07 22:24:56",
-
+  "action" "build",
+  "nodejsVersion": "v0.10.25",
+  "builderVersion": "0.0.7",
+  "starttime": "2014-04-29 17:44:47",
   "init": {
-    "starttime": "2014-04-07 21:17:25",
-    "endtime": "2014-04-07 21:17:25"
+    "startTime": "2014-04-29 17:44:47",
+    "endtime": "2014-04-29 17:44:49",
+    "status": "SUCCESS"
   },
-
   "build": {
-    "starttime": "2014-04-07 21:17:25",
-    "endtime": "2014-04-07 21:17:28"
+    "startTime": "2014-04-29 17:44:49",
+    "npm": {
+      "starttime": "2014-04-29 17:44:59",
+      "endtime": "2014-04-29 17:45:24",
+      "status": "SUCCESS"
+    },
+    "gruntcli": {
+      "starttime": "2014-04-29 17:45:24",
+      "endtime": "2014-04-29 17:45:28",
+      "status": "SUCCESS"
+    },
+    "endtime": "2014-04-29 17:45:28",
+    "status": "SUCCESS"
   },
-
   "bake": {
-    "starttime": "2014-04-07 21:17:28",
-
+    "startTime": "2014-04-29 17:45:28",
     "lint": {
-      "starttime": "2014-04-07 21:17:28",
-      "endtime": "2014-04-07 21:17:28",
+      "starttime": "2014-04-29 17:45:28",
+      "endtime": "2014-04-29 17:45:28",
       "status": "SUCCESS"
     },
-
     "unittest": {
-      "starttime": "2014-04-07 21:17:28",
-      "endtime": "2014-04-07 21:17:29",
-      "status": "FAILURE"
+      "starttime": "2014-04-29 17:45:28",
+      "endtime": "2014-04-29 17:45:29",
+      "status": "SUCCESS"
     },
-
     "coverage": {
-      "starttime": "2014-04-07 21:17:29",
-      "endtime": "2014-04-07 21:17:29",
+      "starttime": "2014-04-29 17:45:29",
+      "endtime": "2014-04-29 17:45:35",
       "status": "SUCCESS"
     },
-
     "custom": {
-      "starttime": "2014-04-07 21:17:29",
-      "endtime": "2014-04-07 21:17:29",
+      "starttime": "2014-04-29 17:45:35",
+      "endtime": "2014-04-29 17:45:38",
       "status": "SUCCESS"
     },
-
-    "endtime": "2014-04-07 21:17:29"
+    "endtime": "2014-04-29 17:45:38",
+    "status": "SUCCESS"
   },
-
-  "endtime": "2014-04-07 22:21:16",
-  "status": "SUCCESS"
+  "bundle": {
+    "startTime": "2014-04-29 17:45:38",
+    "endtime": "2014-04-29 17:45:45",
+    "status": "FAILURE"
+  },
+  "endtime": "2014-04-29 17:45:45",
+  "status": "FAILURE"
 }
 ```
 
 ### TODO
 
 - actual time spent in addition to starttime and endtime
-- bower install
 - number test failures, number of lint errors
 - Error codes
 

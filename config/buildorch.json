@@ -52,17 +52,17 @@
 			"lint" : {
 				"task" : "lint",
 				"skip" : "env:SKIP_LINT|b",
-				"failonerror" : true
+				"failonerror" : "env:LINT_FAILONERROR|b"
 			},
 			"unittest" : {
 				"task" : "test",
 				"skip" : "env:SKIP_TEST|b",
-				"failonerror" : true
+				"failonerror" : "env:TEST_FAILONERROR|b"
 			},
 			"coverage" : {
 				"task" : "coverage",
 				"skip" : "env:SKIP_COVERAGE|b",
-				"failonerror" : true
+				"failonerror" : "env:COVERAGE_FAILONERROR|b"
 			}
 		},
 		"postscript" : "",
