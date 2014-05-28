@@ -33,7 +33,7 @@ describe('b3 config test', function () {
            assert.notOk(err);
            assert.ok(config);
            
-           assert.strictEqual("tar",config.get('bundle').execbundle.format);
+           assert.strictEqual("copy",config.get('bundle').execbundle.format);
            //path for script
            assert.strictEqual(path.join(process.cwd(),'initscript.sh'),config.get('init').script);
            assert.strictEqual(path.join(process.cwd(),'buildscript.sh'),config.get('build').script);

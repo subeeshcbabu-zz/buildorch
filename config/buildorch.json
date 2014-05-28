@@ -27,6 +27,12 @@
 				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipGruntCLIInstall",
 				"failonerror" : true
 			},
+			"bowercli" : {
+				"command" : "npm",
+				"task" : "install bower",
+				"skip" : "exec:./node_modules/buildorch/lib/util/validateutil#skipBowerCLIInstall",
+				"failonerror" : false
+			},
 			"bower" : {
 				"command" : "path:node_modules/bower/bin/bower",
 				"task" : "install",

@@ -1,0 +1,18 @@
+{
+  "name": "developernodeweb",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "~2.1.11",
+    "jquery": "~1.11.x",
+    "lodash": "~2.4.1",
+    "marionette": "~1.6.4",
+    "backbone": "~1.1.2",
+    "bootstrap": "~3.1.1",
+    "dustjs-linkedin": "~2.3.4",
+    "dustjs-linkedin-helpers": "~1.2.0",
+    "html5shiv": "~3.7.0",
+    "backbone.hammer.js": "~0.2.0",
+    "hammerjs": "~1.1.2",
+    "jquery-hammerjs": "~1.1.2"
+  }
+}

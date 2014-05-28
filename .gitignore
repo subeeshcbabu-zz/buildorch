@@ -43,3 +43,5 @@ build-metrics.json
 /test/fixtures/target
 /test/fixtures/.defaultignore
 /test/fixtures/jshint
+/test/fixtures/tempsource
+/test/fixtures/public
