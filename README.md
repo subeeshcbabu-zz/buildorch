@@ -18,8 +18,8 @@ The workflow has these three,
 
 Init script to install nodejs and npm and configure the npm defaults
 	
-	curl -k https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh
-    source buildorch.sh
+	curl -k https://raw.githubusercontent.com/subeeshcbabu/buildorch/master/buildorch.sh -o buildorch.sh
+    . buildorch.sh
     installNode
 
 Install the module
