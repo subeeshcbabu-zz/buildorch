@@ -4,7 +4,7 @@
 #
 
 ## CONSTANTS and Parameters
-node_default_ver=v0.10.25
+node_default_ver=v0.10.29
 bash_profile=$HOME/.bash_profile
 
 ## Functions
