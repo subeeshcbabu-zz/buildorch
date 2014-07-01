@@ -6,6 +6,7 @@
 ## CONSTANTS and Parameters
 node_default_ver=v0.10.29
 bash_profile=$HOME/.bash_profile
+nvm_dir=$HOME/.nvm
 
 ## Functions
 
@@ -74,7 +75,15 @@ function configureNPM {
 ##
 function installNode {
 	echo "************************ Start install *************************"
-	initBashProfile
+	# Detect profile file if not specified as environment variable (eg: PROFILE=~/.myprofile).
+	if [ -z "$PROFILE" ]; then
+		initBashProfile
+		export PROFILE=$bash_profile
+	fi
+	if [ -z "$NVM_DIR" ]; then
+  		export NVM_DIR=$nvm_dir
+	fi
+	source $PROFILE
 	node_ver=$node_default_ver
 	# Read the user requested version
 	if [ ! -z "$NODE_VERSION" ]; then
@@ -87,15 +96,15 @@ function installNode {
 	elif [[ $(validateVersion "nvm ls" "$node_ver") = 0 ]]; then
 		echo "Installed node version: `nvm ls $node_ver`"
 		nvm use $node_ver
-		node_dir=$HOME/.nvm/$node_ver
+		node_dir=$NVM_DIR/$node_ver
 	else
 		echo "node version to install: $node_ver"
 		# Install Node using NVM - https://github.com/creationix/nvm
 		curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | /bin/sh
-		source $bash_profile
+		source $PROFILE
 		nvm install $node_ver
 		nvm use $node_ver
-		node_dir=$HOME/.nvm/$node_ver
+		node_dir=$NVM_DIR/$node_ver
 		node_exec_path=$node_dir/bin
 		if [ -f "$node_exec_path/node" ]; then
 			echo "Successfully Installed node and npm"
