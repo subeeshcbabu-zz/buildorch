@@ -35,7 +35,7 @@ function validateVersion {
 	out=`$command`
 	res=0
 	
-	check_ver=`echo "$out" | grep "$ver"`
+	check_ver=`echo "$out" | grep -q "$ver"`
 	if [ -z "$check_ver" ]; then
 		# InValid
 		res=1
@@ -83,7 +83,8 @@ function installNode {
 	if [ -z "$NVM_DIR" ]; then
   		export NVM_DIR=$nvm_dir
 	fi
-	source $PROFILE
+	#source $PROFILE
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 	node_ver=$node_default_ver
 	# Read the user requested version
 	if [ ! -z "$NODE_VERSION" ]; then
@@ -101,7 +102,8 @@ function installNode {
 		echo "node version to install: $node_ver"
 		# Install Node using NVM - https://github.com/creationix/nvm
 		curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | /bin/sh
-		source $PROFILE
+		#source $PROFILE
+		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 		nvm install $node_ver
 		nvm use $node_ver
 		node_dir=$NVM_DIR/$node_ver
