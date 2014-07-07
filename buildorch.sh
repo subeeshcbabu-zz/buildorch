@@ -83,7 +83,8 @@ function installNode {
 	if [ -z "$NVM_DIR" ]; then
   		export NVM_DIR=$nvm_dir
 	fi
-	source $PROFILE
+	#source $PROFILE
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 	node_ver=$node_default_ver
 	# Read the user requested version
 	if [ ! -z "$NODE_VERSION" ]; then
@@ -91,6 +92,13 @@ function installNode {
 	fi
 	
 	# validate the existing version
+	#
+	echo "######"
+	echo "# Checking for Required versions of node and npm." 
+	echo "# If not intalled or not found on PATH, the script will install the required version."
+	echo "# Please Ignore the node and npm command not found warnings."
+	echo "######"
+
 	if [[ $(validateVersion "node -v" "$node_ver") = 0 ]]; then
 		echo "Installed node version: $node_ver"
 	elif [[ $(validateVersion "nvm ls" "$node_ver") = 0 ]]; then
@@ -101,7 +109,8 @@ function installNode {
 		echo "node version to install: $node_ver"
 		# Install Node using NVM - https://github.com/creationix/nvm
 		curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | /bin/sh
-		source $PROFILE
+		#source $PROFILE
+		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 		nvm install $node_ver
 		nvm use $node_ver
 		node_dir=$NVM_DIR/$node_ver
