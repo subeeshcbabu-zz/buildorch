@@ -92,6 +92,13 @@ function installNode {
 	fi
 	
 	# validate the existing version
+	#
+	echo "######"
+	echo "# Checking for Required versions of node and npm." 
+	echo "# If not intalled or not found on PATH, the script will install the required version."
+	echo "# Please Ignore the node and npm command not found warnings."
+	echo "######"
+
 	if [[ $(validateVersion "node -v" "$node_ver") = 0 ]]; then
 		echo "Installed node version: $node_ver"
 	elif [[ $(validateVersion "nvm ls" "$node_ver") = 0 ]]; then
