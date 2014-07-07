@@ -35,7 +35,7 @@ function validateVersion {
 	out=`$command`
 	res=0
 	
-	check_ver=`echo "$out" | grep -q "$ver"`
+	check_ver=`echo "$out" | grep "$ver"`
 	if [ -z "$check_ver" ]; then
 		# InValid
 		res=1
