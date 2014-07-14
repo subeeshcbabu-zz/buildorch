@@ -112,7 +112,7 @@ function orchestrate(tasks) {
 	if (fs.existsSync(outfile)) {
 		shell.rm('-f', outfile);
 	}
-	if (typeof exitcode === 'undefined') {
+	if (typeof exitcode === 'undefined' || exitcode === '') {
 		exitcode = 1;
 	}
 	return exitcode;
