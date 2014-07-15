@@ -59,7 +59,7 @@ function orchestrate(tasks) {
 		outfile = path.join(shell.tempdir(), 'outfile' + random),
 		start,
 		now,
-		timeout = process.env.BUILD_TIMEOUT || 1800000,
+		timeout = process.env.BUILD_TIMEOUT || 3600000,
 		executorPath = path.join(__dirname, 'executor.js'),
 		options = {
 			task : tasks,
@@ -112,7 +112,7 @@ function orchestrate(tasks) {
 	if (fs.existsSync(outfile)) {
 		shell.rm('-f', outfile);
 	}
-	if (typeof exitcode === 'undefined' || exitcode === '') {
+	if (typeof exitcode === 'undefined') {
 		exitcode = 1;
 	}
 	return exitcode;
